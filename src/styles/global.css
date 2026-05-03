@@ -84,6 +84,74 @@ a {
   outline-offset: 3px;
 }
 
+.access-gate {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1rem;
+}
+
+.access-gate__form {
+  width: min(100%, 28rem);
+}
+
+.access-gate__eyebrow {
+  color: #8a6f00;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.access-gate__title {
+  margin-top: 0.5rem;
+  color: #1c1917;
+  font-size: clamp(3rem, 12vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.92;
+}
+
+.access-gate__label {
+  display: block;
+  margin-top: 2rem;
+  color: #57534e;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.access-gate__row {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.access-gate__input {
+  min-height: 2.75rem;
+  width: 100%;
+  border: 1px solid #d6d3d1;
+  border-radius: 0.375rem;
+  background: #ffffff;
+  color: #1c1917;
+  padding: 0 0.875rem;
+  font: inherit;
+}
+
+.access-gate__button {
+  min-height: 2.75rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  padding: 0 1rem;
+  font: inherit;
+  font-weight: 500;
+}
+
+.access-gate__error {
+  margin-top: 0.75rem;
+  color: #b45309;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 .theme-toggle-bar {
   display: flex;
   justify-content: flex-end;
@@ -136,6 +204,28 @@ a {
 :root.dark .theme-toggle {
   background: rgba(28, 25, 23, 0.88);
   color: #e7e5e4;
+}
+
+:root.dark .access-gate__eyebrow {
+  color: var(--color-accent);
+}
+
+:root.dark .access-gate__title {
+  color: #f5f5f4;
+}
+
+:root.dark .access-gate__label {
+  color: #d6d3d1;
+}
+
+:root.dark .access-gate__input {
+  border-color: #44403c;
+  background: #1c1917;
+  color: #f5f5f4;
+}
+
+:root.dark .access-gate__error {
+  color: #fbbf24;
 }
 
 :root.dark .theme-toggle__track {

@@ -2,6 +2,7 @@
 title: "Slanted Magazine #41: Amsterdam"
 author: "Slanted Publishers"
 category: "Magazine"
+cover: "/covers/slanted-41.png"
 tags: ["tipografía", "diseño gráfico", "revista"]
 status: "pendiente"
 year: 2023

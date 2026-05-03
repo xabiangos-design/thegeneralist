@@ -1,0 +1,53 @@
+<section id="access-gate" class="access-gate" aria-labelledby="access-title">
+  <form id="access-form" class="access-gate__form">
+    <p class="access-gate__eyebrow">Acceso privado</p>
+    <label class="access-gate__label" for="access-password">Contraseña</label>
+    <div class="access-gate__row">
+      <input
+        id="access-password"
+        class="access-gate__input"
+        type="password"
+        name="password"
+        autocomplete="current-password"
+        required
+      />
+      <button class="access-gate__button" type="submit">Entrar</button>
+    </div>
+    <p id="access-error" class="access-gate__error" hidden>Contraseña incorrecta.</p>
+  </form>
+</section>
+
+<script>
+  const ACCESS_PASSWORD = "thegeneralist";
+  const ACCESS_KEY = "thegeneralist:access";
+
+  const gate = document.querySelector<HTMLElement>("#access-gate");
+  const content = document.querySelector<HTMLElement>("#private-content");
+  const form = document.querySelector<HTMLFormElement>("#access-form");
+  const input = document.querySelector<HTMLInputElement>("#access-password");
+  const error = document.querySelector<HTMLElement>("#access-error");
+
+  const unlock = () => {
+    if (gate) gate.hidden = true;
+    if (content) content.hidden = false;
+  };
+
+  if (localStorage.getItem(ACCESS_KEY) === "granted") {
+    unlock();
+  } else {
+    input?.focus();
+  }
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (input?.value === ACCESS_PASSWORD) {
+      localStorage.setItem(ACCESS_KEY, "granted");
+      unlock();
+      return;
+    }
+
+    if (error) error.hidden = false;
+    input?.select();
+  });
+</script>

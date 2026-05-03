@@ -2,6 +2,7 @@
 title: "Tipografía"
 author: "Otl Aicher"
 category: "Tipografía"
+cover: "/covers/otl-aicher.png"
 tags: ["tipografía", "comunicación", "diseño gráfico"]
 status: "pendiente"
 year: 2004

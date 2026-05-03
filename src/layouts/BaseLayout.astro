@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import AccessGate from "@/components/AccessGate.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 
 interface Props {
@@ -34,10 +35,13 @@ const pageTitle = title === "The GeneraList" ? title : `${title} · The GeneraLi
   </head>
   <body class="bg-white text-stone-900 antialiased">
     <div class="min-h-screen">
-      <div class="theme-toggle-bar">
-        <ThemeToggle />
+      <AccessGate />
+      <div id="private-content" hidden>
+        <div class="theme-toggle-bar">
+          <ThemeToggle />
+        </div>
+        <slot />
       </div>
-      <slot />
     </div>
   </body>
 </html>
