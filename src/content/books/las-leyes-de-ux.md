@@ -2,7 +2,7 @@
 title: "Las leyes de UX"
 author: "Jon Yablonski"
 category: "UX"
-tags: ["UX", "psicología", "interfaces"]
+tags: ["UX", "persuasión", "interfaces"]
 status: "pendiente"
 year: 2022
 pages: 152

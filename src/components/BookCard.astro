@@ -18,7 +18,7 @@ const { book } = Astro.props;
   data-tags={book.tags.join("|")}
   data-year={book.year ?? ""}
   data-created-at={book.createdAt}
-  class="group flex h-full flex-col overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-700/30 hover:shadow-md"
+  class="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:border-emerald-700/30 hover:shadow-md"
 >
   <a href={`/books/${book.slug}/`} class="flex h-full flex-col no-underline">
     <div class="h-[15.625rem] bg-stone-100">

@@ -2,7 +2,7 @@
 title: "Designing for Behavior Change"
 author: "Stephen Wendel"
 category: "Ciencias del comportamiento"
-tags: ["cambio de comportamiento", "economía conductual", "psicología", "producto digital", "UX"]
+tags: ["cambio de comportamiento", "economía conductual", "persuasión", "producto digital", "UX"]
 status: "pendiente"
 year: 2020
 pages: 382

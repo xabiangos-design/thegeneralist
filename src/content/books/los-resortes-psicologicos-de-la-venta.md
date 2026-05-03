@@ -1,8 +1,8 @@
 ---
 title: "Los resortes psicológicos de la venta"
 author: "Joseph Sugarman"
-category: "Marketing"
-tags: ["copywriting", "ventas", "psicología"]
+category: "Persuasión"
+tags: ["copywriting", "ventas", "persuasión"]
 status: "pendiente"
 year: 2002
 pages: 256

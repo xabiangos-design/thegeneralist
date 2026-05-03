@@ -1,8 +1,8 @@
 ---
 title: "Pre-suasión"
 author: "Robert Cialdini"
-category: "Psicología"
-tags: ["persuasión", "psicología", "comportamiento"]
+category: "Persuasión"
+tags: ["persuasión", "comportamiento"]
 status: "pendiente"
 year: 2017
 pages: 448
