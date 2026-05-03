@@ -1,7 +1,8 @@
 ---
 title: "Las leyes de la simplicidad"
 author: "John Maeda"
-category: "Diseño"
+category: "Diseño de producto"
+cover: "/covers/leyes-simplicidad.png"
 tags: ["simplicidad", "diseño", "tecnología"]
 status: "pendiente"
 year: 2026

@@ -2,6 +2,7 @@
 title: "Influencia"
 author: "Robert Cialdini"
 category: "Persuasión"
+cover: "/covers/influencia.png"
 tags: ["persuasión", "comportamiento", "marketing"]
 status: "pendiente"
 year: 2022

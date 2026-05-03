@@ -2,6 +2,7 @@
 title: "The FVS Atlas"
 author: "TwoPoints.Net"
 category: "Diseño gráfico"
+cover: "/covers/the-fvs-atlas.png"
 tags: ["identidad visual", "sistemas visuales", "branding"]
 status: "pendiente"
 year: 2025

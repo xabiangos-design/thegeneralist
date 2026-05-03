@@ -1,7 +1,7 @@
 ---
 title: "Un pequeño empujón"
 author: "Richard H. Thaler y Cass R. Sunstein"
-category: "Economía conductual"
+category: "Comportamiento"
 tags: ["nudge", "decisiones", "comportamiento"]
 status: "pendiente"
 year: 2009

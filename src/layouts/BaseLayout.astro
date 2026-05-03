@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import ThemeToggle from "@/components/ThemeToggle.astro";
 
 interface Props {
   title?: string;
@@ -21,10 +22,21 @@ const pageTitle = title === "The GeneraList" ? title : `${title} · The GeneraLi
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
     <title>{pageTitle}</title>
   </head>
-  <body class="bg-[#f8f7f4] text-stone-900 antialiased">
+  <body class="bg-white text-stone-900 antialiased">
     <div class="min-h-screen">
+      <div class="theme-toggle-bar">
+        <ThemeToggle />
+      </div>
       <slot />
     </div>
   </body>
