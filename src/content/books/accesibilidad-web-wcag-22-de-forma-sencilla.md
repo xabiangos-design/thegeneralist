@@ -2,6 +2,7 @@
 title: "Accesibilidad Web. WCAG 2.2 de forma sencilla"
 author: "Olga Revilla Muñoz y Olga Carreras Montoto"
 category: "Accesibilidad"
+cover: "/covers/accesibilidad-web.png"
 tags: ["accesibilidad", "WCAG", "web"]
 status: "pendiente"
 year: 2024

@@ -2,6 +2,7 @@
 title: "Pre-suasión"
 author: "Robert Cialdini"
 category: "Persuasión"
+cover: "/covers/pre-suasion.png"
 tags: ["persuasión", "comportamiento"]
 status: "pendiente"
 year: 2017
