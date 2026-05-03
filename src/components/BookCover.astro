@@ -1,0 +1,49 @@
+---
+interface Props {
+  title: string;
+  cover?: string;
+  variant?: "card" | "detail";
+}
+
+const { title, cover, variant = "card" } = Astro.props;
+const fallbackClasses =
+  variant === "detail"
+    ? "flex aspect-[3/4] w-full flex-col items-center justify-center bg-gradient-to-br from-stone-100 to-emerald-50 px-8 text-center"
+    : "flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-stone-100 to-emerald-50 px-6 text-center";
+const titleClasses =
+  variant === "detail"
+    ? "mt-4 text-2xl font-semibold leading-tight text-stone-900"
+    : "mt-3 text-lg font-semibold leading-tight text-stone-800";
+const imageClasses =
+  variant === "detail"
+    ? "h-full w-full object-cover"
+    : "h-full w-full object-contain p-4";
+---
+
+{
+  cover && (
+    <img
+      src={cover}
+      alt={`Portada de ${title}`}
+      loading={variant === "card" ? "lazy" : "eager"}
+      class={imageClasses}
+      data-book-cover-image
+    />
+  )
+}
+<div class={fallbackClasses} hidden={Boolean(cover)} data-book-cover-fallback>
+  <span class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">Sin portada</span>
+  <span class={titleClasses}>{title}</span>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLImageElement>("[data-book-cover-image]").forEach((image) => {
+    image.addEventListener("error", () => {
+      image.hidden = true;
+      const fallback = image.nextElementSibling;
+      if (fallback instanceof HTMLElement) {
+        fallback.hidden = false;
+      }
+    });
+  });
+</script>

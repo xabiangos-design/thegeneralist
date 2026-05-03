@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  id?: string;
+  hidden?: boolean;
+}
+
+const { title, description, id, hidden = false } = Astro.props;
+---
+
+<div
+  id={id}
+  class:list={[
+    "rounded-lg border border-dashed border-stone-300 bg-white/70 px-6 py-12 text-center",
+    hidden && "hidden"
+  ]}
+>
+  <p class="text-lg font-semibold text-stone-900">{title}</p>
+  {description && <p class="mx-auto mt-2 max-w-xl text-sm leading-6 text-stone-600">{description}</p>}
+</div>

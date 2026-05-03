@@ -1,0 +1,31 @@
+---
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "The GeneraList",
+  description = "Libros y recursos para diseñadoras/es con intereses varios"
+} = Astro.props;
+const pageTitle = title === "The GeneraList" ? title : `${title} · The GeneraList`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="bg-[#f8f7f4] text-stone-900 antialiased">
+    <div class="min-h-screen">
+      <slot />
+    </div>
+  </body>
+</html>

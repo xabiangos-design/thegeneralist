@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BookCard from "@/components/BookCard.astro";
+import BookFilters from "@/components/BookFilters.astro";
+import EmptyState from "@/components/EmptyState.astro";
+import { toBookListItem, uniqueSorted } from "@/lib/books";
+
+const books = (await getCollection("books"))
+  .map(toBookListItem)
+  .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
+
+const categories = uniqueSorted(books.map((book) => book.category));
+const tags = uniqueSorted(books.flatMap((book) => book.tags));
+---
+
+<BaseLayout>
+  <main class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <header class="mb-8 max-w-3xl">
+      <!-- <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-800">The GeneraList</p> -->
+      <h1 class="mt-3 text-4xl font-semibold tracking-heading text-stone-950 sm:text-5xl">
+        The GeneraList
+      </h1>
+      <p class="mt-4 text-base leading-7 text-stone-600">
+        Libros y recursos para diseñadoras/es con intereses varios
+      </p>
+    </header>
+
+    {
+      books.length === 0 ? (
+        <EmptyState
+          title="Todavía no hay libros"
+          description="Añade archivos Markdown en src/content/books para empezar a llenar tu biblioteca."
+        />
+      ) : (
+        <>
+          <BookFilters categories={categories} tags={tags} />
+          <section id="books-grid" class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {books.map((book) => <BookCard book={book} />)}
+          </section>
+          <div class="mt-6">
+            <EmptyState
+              id="no-results"
+              hidden
+              title="No hay resultados"
+              description="Prueba a cambiar la búsqueda o limpiar los filtros activos."
+            />
+          </div>
+        </>
+      )
+    }
+  </main>
+</BaseLayout>

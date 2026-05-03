@@ -1,0 +1,43 @@
+---
+import BookCover from "@/components/BookCover.astro";
+import Tag from "@/components/Tag.astro";
+import type { BookListItem } from "@/lib/types";
+
+interface Props {
+  book: BookListItem;
+}
+
+const { book } = Astro.props;
+---
+
+<article
+  data-book-card
+  data-title={book.title}
+  data-author={book.author}
+  data-category={book.category}
+  data-tags={book.tags.join("|")}
+  data-year={book.year ?? ""}
+  data-created-at={book.createdAt}
+  class="group flex h-full flex-col overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-700/30 hover:shadow-md"
+>
+  <a href={`/books/${book.slug}/`} class="flex h-full flex-col no-underline">
+    <div class="h-[15.625rem] bg-stone-100">
+      <BookCover title={book.title} cover={book.cover} />
+    </div>
+    <div class="flex flex-1 flex-col p-4">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-800">{book.category}</p>
+      </div>
+      <h2 class="mt-3 text-lg font-semibold leading-snug text-stone-950 group-hover:text-emerald-800">
+        {book.title}
+      </h2>
+      <p class="mt-1 text-sm text-stone-600">{book.author}</p>
+      <div class="mt-4 flex flex-wrap gap-1.5">
+        {book.tags.slice(0, 3).map((tag) => <Tag text={tag} />)}
+      </div>
+      <div class="mt-auto pt-5">
+        {book.year && <span class="text-sm text-stone-500">{book.year}</span>}
+      </div>
+    </div>
+  </a>
+</article>
