@@ -2,7 +2,7 @@
 title: "Diseño desde Marte"
 author: "Cris Busquets"
 category: "Diseño de producto"
-cover: "/covers/diseno-desde-marte.png"
+cover: "/covers/diseno-desde-marte.jpg"
 tags: ["producto digital", "UX", "diseño"]
 status: "pendiente"
 year: 2023

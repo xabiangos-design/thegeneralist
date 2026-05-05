@@ -1,6 +1,7 @@
 ---
 import BookCover from "@/components/BookCover.astro";
 import Tag from "@/components/Tag.astro";
+import { normalizeText } from "@/lib/normalize";
 import type { BookListItem } from "@/lib/types";
 
 interface Props {
@@ -8,17 +9,16 @@ interface Props {
 }
 
 const { book } = Astro.props;
+const searchText = normalizeText(`${book.title} ${book.author}`);
+const tagText = book.tags.map(normalizeText).join("|");
 ---
 
 <article
   data-book-card
-  data-title={book.title}
-  data-author={book.author}
+  data-search={searchText}
   data-category={book.category}
-  data-tags={book.tags.join("|")}
-  data-year={book.year ?? ""}
-  data-created-at={book.createdAt}
-  class="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:border-emerald-700/30 hover:shadow-md"
+  data-tags={tagText}
+  class="book-card group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:border-emerald-700/30 hover:shadow-md"
 >
   <a href={`/books/${book.slug}/`} class="flex h-full flex-col no-underline">
     <div class="h-[15.625rem] bg-stone-100">

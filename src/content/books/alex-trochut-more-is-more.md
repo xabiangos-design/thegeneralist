@@ -2,7 +2,7 @@
 title: "Alex Trochut: More Is More"
 author: "Dani Navarro y Albert Martínez López-Amor"
 category: "Diseño gráfico"
-cover: "/covers/alex-trochut.png"
+cover: "/covers/alex-trochut.jpg"
 tags: ["lettering", "ilustración", "diseño gráfico"]
 status: "pendiente"
 year: 2011

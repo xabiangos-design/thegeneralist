@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 interface Props {
   title: string;
   cover?: string;
@@ -6,6 +9,15 @@ interface Props {
 }
 
 const { title, cover, variant = "card" } = Astro.props;
+const localCoverModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/covers/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+const localCover =
+  cover?.startsWith("/covers/")
+    ? localCoverModules[`../assets${cover}`]?.default
+    : undefined;
+const remoteCover = cover && !localCover ? cover : undefined;
 const fallbackClasses =
   variant === "detail"
     ? "flex aspect-[3/4] w-full flex-col items-center justify-center bg-gradient-to-br from-stone-100 to-emerald-50 px-8 text-center"
@@ -18,20 +30,44 @@ const imageClasses =
   variant === "detail"
     ? "h-full w-full object-cover"
     : "h-full w-full object-contain p-4";
+const imageWidth = variant === "detail" ? 640 : 288;
+const imageHeight = variant === "detail" ? 853 : 250;
 ---
 
 {
-  cover && (
-    <img
-      src={cover}
+  localCover && (
+    <Image
+      src={localCover}
       alt={`Portada de ${title}`}
       loading={variant === "card" ? "lazy" : "eager"}
+      decoding="async"
+      fetchpriority={variant === "detail" ? "high" : "low"}
+      width={imageWidth}
+      height={imageHeight}
+      format="webp"
+      quality={85}
+      fit="contain"
       class={imageClasses}
       data-book-cover-image
     />
   )
 }
-<div class={fallbackClasses} hidden={Boolean(cover)} data-book-cover-fallback>
+{
+  remoteCover && (
+    <img
+      src={remoteCover}
+      alt={`Portada de ${title}`}
+      loading={variant === "card" ? "lazy" : "eager"}
+      decoding="async"
+      fetchpriority={variant === "detail" ? "high" : "low"}
+      width={imageWidth}
+      height={imageHeight}
+      class={imageClasses}
+      data-book-cover-image
+    />
+  )
+}
+<div class={fallbackClasses} hidden={Boolean(localCover || remoteCover)} data-book-cover-fallback>
   <span class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">Sin portada</span>
   <span class={titleClasses}>{title}</span>
 </div>

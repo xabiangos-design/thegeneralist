@@ -2,7 +2,7 @@
 title: "CSS3 for Web Designers"
 author: "Dan Cederholm"
 category: "Desarrollo web"
-cover: "/covers/css3-web-designers.png"
+cover: "/covers/css3-web-designers.jpg"
 tags: ["CSS", "frontend", "web design"]
 status: "pendiente"
 year: 2015

@@ -2,7 +2,7 @@
 title: "Revista Gràffica Nº 39: Crear mejor"
 author: "AA. VV."
 category: "Magazine"
-cover: "/covers/graffica-39.png"
+cover: "/covers/graffica-39.jpg"
 tags: ["creatividad", "diseño", "revista"]
 status: "pendiente"
 year: 2025
